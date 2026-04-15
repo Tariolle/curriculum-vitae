@@ -38,10 +38,19 @@
 MSc in Computer Science, Systems, and AI (Dipl\^ome d'Ing\'enieur) \hfill Sep 2023 - Jul 2027
 
 \textbf{Lyc\'ee Dupuy de L\^ome} \hfill Lorient, France \\
-CPGE MP (Classes Pr\'eparatoires aux Grandes \'Ecoles, Math\'ematiques et Physique) \hfill Sep 2021 - Jun 2023
+CPGE MP (Preparatory Classes for Grandes \'Ecoles, Mathematics and Physics) \hfill Sep 2021 - Jun 2023
 
 \section*{Publications \& Preprints}
-\textbf{\href{https://github.com/Tariolle/opportunistic-target-selection}{Opportunistic Target Selection}} \hfill \textit{Jan 2026 - Present} \\
+\textbf{\href{https://github.com/Tariolle/sls-wm}{SLS-WM: Structured Label Smoothing for Discrete World Models}} \hfill Feb 2026 - Present \\
+F. Tariolle. Targeting \textit{NeurIPS 2026 Workshop}.
+\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
+    \item Novel loss redistributing target probability via a Gaussian kernel over FSQ coordinate distance with learned per-dimension sensitivity weights; applied inside a 512d block-causal transformer world model (AdaLN-Zero, QK-norm, 3D factored RoPE) coupled with a BC-initialized MLP controller trained by PPO entirely in dream rollouts.
+    \item Deployed zero-shot on real Geometry Dash at sustained 30 FPS ($<$ 33 ms end-to-end) on an RTX 2060 SUPER, using \texttt{torch.compile} and CUDA Graph capture on the prefill hot path.
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{\href{https://github.com/Tariolle/opportunistic-target-selection}{Opportunistic Target Selection}} \hfill Jan 2026 - Present \\
 F. Tariolle, \textit{et al.}. Submitted to \textit{CAp 2026}.
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
     \item Developed a lightweight wrapper for early target selection in score-based black-box adversarial attacks without gradient access.
@@ -49,18 +58,9 @@ F. Tariolle, \textit{et al.}. Submitted to \textit{CAp 2026}.
     \item Established redundancy on gradient-estimation attacks (Bandits), bounding applicability to margin-less score-based random-search attacks.
 \end{itemize}
 
-\vspace{4pt}
-
-\textbf{\href{https://github.com/Tariolle/sls-wm}{SLS-WM: Structured Label Smoothing for Discrete World Models}} \hfill \textit{Feb 2026 - Present} \\
-F. Tariolle. Targeting \textit{NeurIPS 2026 Workshop}.
-\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Novel loss redistributing target probability via a Gaussian kernel over FSQ coordinate distance with learned per-dimension sensitivity weights; applied inside a 512d block-causal transformer world model (AdaLN-Zero, QK-norm, 3D factored RoPE) coupled with a BC-initialized MLP controller trained by PPO entirely in dream rollouts.
-    \item Deployed zero-shot on real Geometry Dash at sustained 30 FPS ($<$ 33 ms end-to-end) on an RTX 2060 SUPER, using \texttt{torch.compile} and CUDA Graph capture on the prefill hot path.
-\end{itemize}
-
 \section*{Research \& Professional Experience}
 \textbf{InterDigital} \hfill Rennes, France \\
-\textit{Research and Development Intern (VVC In-loop Filtering)} \hfill \textit{Upcoming}
+\textit{Research and Development Intern (VVC In-loop Filtering)} \hfill Upcoming
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
     \item Researching and engineering a Neural Network for pixel-level classification to improve Versatile Video Coding (VVC) via in-loop filtering.
     \item Targeting a first-author academic publication or patent filing based on novel model architectures.
@@ -69,14 +69,14 @@ F. Tariolle. Targeting \textit{NeurIPS 2026 Workshop}.
 \vspace{4pt}
 
 \textbf{Enedis} \hfill Rouen, France \\
-\textit{Data Scientist (AI \& Big Data)} \hfill \textit{Jan 2026 - Present}
+\textit{Data Scientist (AI \& Big Data)} \hfill Jan 2026 - Present
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
     \item Designing a Digital Twin of the French electricity distribution network, utilizing generative AI models (Deep Learning) to simulate load curves for 38 million customers.
     \item Developing Big Data pipelines in Python (Spark) for the mass ingestion and processing of high-frequency time series data.
 \end{itemize}
 
 \section*{Engineering Projects \& Open Source}
-\textbf{\href{https://github.com/Alban1911/Rose}{Rose: Open-Source Application}} (Active: 12K+ DAU) \hfill \textit{Sep 2025 - Present} \\
+\textbf{\href{https://github.com/Alban1911/Rose}{Rose: Open-Source Application}} (Active: 12K+ DAU) \hfill Sep 2025 - Present \\
 \textit{Co-Lead Engineer \& Architect}
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
     \item Co-led a 6-person team to scale the platform to market leadership within its sector.

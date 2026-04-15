@@ -53,8 +53,8 @@ F. Tariolle, \textit{et al.}. Submitted to \textit{CAp 2026}.
 \textbf{\href{https://github.com/Tariolle/sls-wm}{SLS-WM: Structured Label Smoothing for Discrete World Models}} \hfill \textit{Feb 2026 - Present} \\
 F. Tariolle. Targeting \textit{NeurIPS 2026 Workshop}.
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Engineered an end-to-end World Model pipeline integrating an FSQ tokenizer and a causal transformer with Adaptive Layer Normalization and 3D RoPE.
-    \item Optimized real-time inference to achieve sub-33 ms latency (30 FPS) on consumer hardware for frame-perfect reaction times.
+    \item Novel loss redistributing target probability via a Gaussian kernel over FSQ coordinate distance with learned per-dimension sensitivity weights; applied inside a 512d block-causal transformer world model (AdaLN-Zero, QK-norm, 3D factored RoPE) coupled with a BC-initialized MLP controller trained by PPO entirely in dream rollouts.
+    \item Deployed zero-shot on real Geometry Dash at sustained 30 FPS ($<$ 33 ms end-to-end) on an RTX 2060 SUPER, using \texttt{torch.compile} and CUDA Graph capture on the prefill hot path.
 \end{itemize}
 
 \section*{Research \& Professional Experience}

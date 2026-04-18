@@ -35,7 +35,7 @@
 
 \section*{Education}
 \textbf{INSA Rouen Normandie} \hfill Rouen, France \\
-MSc in Computer Science, Systems, and AI (Dipl\^ome d'Ing\'enieur) \hfill Sep 2023 - Jul 2027
+MSc in Computer Science, Systems, and AI (Dipl\^ome d'Ing\'enieur) \hfill Sep 2023 - Jun 2027
 
 \textbf{Lyc\'ee Dupuy de L\^ome} \hfill Lorient, France \\
 CPGE MP (Preparatory Classes for Grandes \'Ecoles, Mathematics and Physics) \hfill Sep 2021 - Jun 2023
@@ -44,43 +44,43 @@ CPGE MP (Preparatory Classes for Grandes \'Ecoles, Mathematics and Physics) \hfi
 \textbf{\href{https://github.com/Tariolle/sls-wm}{SLS-WM: Structured Label Smoothing for Discrete World Models}} \hfill Feb 2026 - Present \\
 F. Tariolle. Targeting \textit{NeurIPS 2026 Workshop}.
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Novel loss redistributing target probability via a Gaussian kernel over FSQ coordinate distance with learned per-dimension sensitivity weights; applied inside a 512d block-causal transformer world model (AdaLN-Zero, QK-norm, 3D factored RoPE) coupled with a BC-initialized MLP controller trained by PPO entirely in dream rollouts.
-    \item Deployed zero-shot on real Geometry Dash at sustained 30 FPS ($<$ 33 ms end-to-end) on an RTX 2060 SUPER, using \texttt{torch.compile} and CUDA Graph capture on the prefill hot path.
+    \item Novel loss redistributing target probability via a Gaussian kernel over FSQ coordinate distance with learned per-dimension sensitivity weights; applied inside a block-causal transformer world model with stabilized attention and factored spatiotemporal positional encodings, coupled with an MLP controller trained entirely in imagination.
+    \item Deployed zero-shot on real Geometry Dash at 30 FPS ($<$ 33 ms end-to-end) on a consumer GPU via \texttt{torch.compile}, CUDA graph capture, FP16 autocast, and pinned-memory transfers.
 \end{itemize}
 
 \vspace{4pt}
 
-\textbf{\href{https://github.com/Tariolle/opportunistic-target-selection}{Opportunistic Target Selection}} \hfill Jan 2026 - Present \\
+\textbf{\href{https://github.com/Tariolle/opportunistic-target-selection}{Opportunistic Target Selection}} \hfill Jan 2026 - Mar 2026 \\
 F. Tariolle, \textit{et al}. Submitted to \textit{CAp 2026}.
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Developed a lightweight wrapper for early target selection in score-based black-box adversarial attacks without gradient access.
+    \item Developed a lightweight wrapper that injects directionality into score-based random-search attacks by exploiting early class confidence signals, acting as a margin-loss surrogate.
     \item Solved class drift on random-search attacks, yielding up to a 27 percentage point increase in success rate and 43\% relative reduction in iterations on ResNet-50 (validated across 4,500 runs).
-    \item Established redundancy on gradient-estimation attacks (Bandits), bounding applicability to margin-less score-based random-search attacks.
+    \item Showed inapplicability to gradient-estimation attacks (e.g., Bandits), which carry inherent directionality, scoping the method to undirected random-search attacks.
 \end{itemize}
 
 \section*{Research \& Professional Experience}
 \textbf{InterDigital} \hfill Rennes, France \\
 \textit{Research and Development Intern} \hfill May 2026 - Sep 2026
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Researching and engineering a Neural Network for pixel-level classification to improve Versatile Video Coding (VVC) via in-loop filtering.
-    \item Targeting a first-author academic publication or patent filing based on novel model architectures.
+    \item Designing a classification-based framework for adaptive filter bank selection at the in-loop filtering stage of VVC, targeting PSNR gains and improved coding efficiency.
+    \item Implementing the trained classifier in Python and integrating it into a C++ VVC codec, with evaluation against standard coding performance baselines.
 \end{itemize}
 
 \vspace{4pt}
 
 \textbf{Enedis} \hfill Rouen, France \\
-\textit{Data Scientist} \hfill Jan 2026 - Present
+\textit{Data Scientist} \hfill Jan 2026 - Jan 2027
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Designing a Digital Twin of the French electricity distribution network, utilizing generative AI models (Deep Learning) to simulate load curves for 38 million customers.
-    \item Developing Big Data pipelines in Python (Spark) for the mass ingestion and processing of high-frequency time series data.
+    \item Designing a Digital Twin of the French electricity distribution network using deep generative models to simulate load curves for 38 million customers.
+    \item Building large-scale Spark pipelines in Python to ingest and process high-frequency time series across 38 million metering points feeding the Digital Twin.
 \end{itemize}
 
 \section*{Engineering Projects \& Open Source}
 \textbf{\href{https://github.com/Alban1911/Rose}{Rose: Open-Source Application}} (Active: 12K+ DAU) \hfill Sep 2025 - Present \\
 \textit{Co-Lead Engineer \& Architect}
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Co-led a 6-person team to scale the platform to market leadership within its sector.
-    \item Architected a highly scalable infrastructure utilizing a Python backend, Cloudflare Workers for durable WebSocket relays, and injected JavaScript UI plugins.
+    \item Co-led a 6-person team, growing Rose into the leading free League of Legends skin changer, displacing both free and commercial alternatives.
+    \item Architected the backend infrastructure: Python server, Cloudflare Workers for durable WebSocket relays, and a JavaScript injection layer targeting the game's web-based client for real-time cosmetic modifications.
     \item Optimized client-side efficiency by replacing heavy OCR components with deterministic, real-time DOM-parsing via WebSocket bridges.
 \end{itemize}
 

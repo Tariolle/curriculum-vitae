@@ -66,7 +66,7 @@ F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage auto
 \textit{Independent research project; manuscript in preparation.}
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
     \item Designed a topology-aware training objective for discrete latent predictors using Gaussian kernels over FSQ coordinate distances with structure-informed per-dimension sensitivity weights derived from post-training latent-space analysis.
-    \item Engineered an end-to-end World Model pipeline (Vision--Model--Controller) for Geometry Dash, integrating an FSQ tokenizer, a block-causal transformer with stabilized attention and factored spatiotemporal positional encodings, and a CNN controller trained entirely in imagination.
+    \item Engineered an end-to-end World Model pipeline (Vision--Model--Controller) for Geometry Dash, integrating an FSQ tokenizer, an action-conditioned block-causal transformer with factored spatiotemporal positional encodings, and a CNN controller trained entirely in imagination.
     \item Deployed zero-shot on real Geometry Dash at 30 FPS ($<$33 ms end-to-end) on a consumer GPU by optimizing the PyTorch/CUDA inference path with compilation, CUDA graph replay, mixed precision, and pinned-memory transfers.
 \end{itemize}
 

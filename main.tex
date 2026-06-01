@@ -1,5 +1,5 @@
 \documentclass[10pt, a4paper]{article}
-\usepackage[left=0.6in, right=0.6in, top=0.6in, bottom=0.6in]{geometry}
+\usepackage[left=0.55in, right=0.55in, top=0.55in, bottom=0.55in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{hyperref}
@@ -12,7 +12,7 @@
 
 % Formatting titles
 \titleformat{\section}{\large\bfseries\uppercase}{}{0pt}{}[\titlerule]
-\titlespacing*{\section}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\section}{0pt}{1.1ex plus .6ex minus .2ex}{0.6ex plus .2ex}
 
 \hypersetup{
     colorlinks=true,
@@ -69,6 +69,10 @@ F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage auto
     \item Engineered an end-to-end World Model pipeline (Vision--Model--Controller) for Geometry Dash, integrating an FSQ tokenizer, an action-conditioned block-causal transformer with factored spatiotemporal positional encodings, and a CNN controller trained entirely in imagination.
     \item Deployed zero-shot on real Geometry Dash at 30 FPS ($<$33 ms end-to-end) on a consumer GPU by optimizing the PyTorch/CUDA inference path with compilation, CUDA graph replay, mixed precision, and pinned-memory transfers.
 \end{itemize}
+
+\section*{Awards \& Selected Activities}
+\textbf{Selected Participant, Hack the World(s) Hackathon} \hfill Jun 2026 \\
+Selected for a 24-hour hackathon on world models; event supported by Yann LeCun, with 100 participants chosen from 650 candidates.
 
 \section*{Open Source}
 \textbf{\href{https://github.com/Alban1911/Rose}{Rose}} (Active: 15K+ DAU) \hfill Sep 2025 - Present \\

@@ -1,0 +1,41 @@
+name: Build CV PDF
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - main.tex
+      - Makefile
+      - .github/workflows/build-cv.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+      - name: Commit updated PDF
+        shell: bash
+        run: |
+          if [ -z "$(git status --porcelain -- main.pdf)" ]; then
+            echo "main.pdf is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f main.pdf
+          git commit -m "Build CV PDF"
+          git push

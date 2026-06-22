@@ -60,23 +60,23 @@ F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage auto
 \textbf{\href{https://www.enedis.fr/}{Enedis}} \hfill Rouen, France \\
 \textit{Academic Machine Learning Intern} \hfill Jan 2026 - Present
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Working on deep generative models and large-scale pipelines to simulate high-frequency time series for 38 million customers, supporting a Digital Twin of the French electricity grid.
+    \item Working on deep generative models and large-scale pipelines to simulate high-frequency time series for 38 million customers, supporting a digital twin of the French electricity grid.
 \end{itemize}
 
 \section*{Research Projects}
-\textbf{\href{https://tariolle.github.io/sls-wm/}{SLS-WM: Structured Label Smoothing for Discrete World Models}} \hfill Feb 2026 - Present \\
+\textbf{\href{https://tariolle.github.io/sls-wm/}{SLS-WM: Annealed Structured Label Smoothing for Discrete World Models}} \hfill Feb 2026 - Present \\
 \textit{Independent research project; manuscript in preparation.}
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Designed a topology-aware training objective for discrete latent predictors using Gaussian kernels over FSQ coordinate distances with structure-informed per-dimension sensitivity weights derived from post-training latent-space analysis.
-    \item Engineered an end-to-end World Model pipeline (Vision--Model--Controller) for Geometry Dash, integrating an FSQ tokenizer, an action-conditioned block-causal transformer with factored spatiotemporal positional encodings, and a CNN controller trained entirely in imagination.
-    \item Deployed zero-shot on real Geometry Dash at 30 FPS ($<$33 ms end-to-end) on a consumer GPU by optimizing the PyTorch/CUDA inference path with compilation, CUDA graph replay, mixed precision, and pinned-memory transfers.
+    \item Designed a tokenizer-metric-aware objective for discrete world models that uses local soft targets early in training and anneals back to cross-entropy to preserve the final objective.
+    \item Evaluating the method on an accepted IRIS Atari world-model baseline under matched cross-entropy vs. annealed-SLS settings, measuring optimization stability, sample efficiency, final/tail return, and seed failure rate.
+    \item Built an action-conditioned Geometry Dash world model with FSQ tokenization, a block-causal dynamics transformer, and a latent actor-critic trained in imagined rollouts; deployed zero-shot on real gameplay at 30 FPS.
 \end{itemize}
 
-\section*{Awards \& Selected Activities}
+\section*{Awards}
 \textbf{Finalist, Hack the World(s) Hackathon} \hfill Jun 2026 \\
 \textit{24-hour team project at a Yann LeCun-sponsored hackathon on JEPAs and world models}
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Co-developed a geometry-aware EEG representation-learning project: a strong SIGReg frozen-transfer baseline and evidence that SPD-tangent geometry makes learned latent structure more visible.
+    \item Developed a geometry-aware EEG representation-learning project: a strong SIGReg frozen-transfer baseline and evidence that SPD-tangent geometry makes learned latent structure more visible.
 \end{itemize}
 
 \section*{Open Source}

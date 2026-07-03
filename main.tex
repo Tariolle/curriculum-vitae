@@ -64,12 +64,12 @@ F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage auto
 \end{itemize}
 
 \section*{Research Projects}
-\textbf{\href{https://tariolle.github.io/sls-wm/}{SLS-WM: Annealed Structured Label Smoothing for Discrete World Models}} \hfill Feb 2026 - Present \\
+\textbf{\href{https://tariolle.github.io/dash-vmc/}{DashVMC: Real-Time Discrete World-Model Control in Geometry Dash}} \hfill Feb 2026 - Present \\
 \textit{Independent research project; manuscript in preparation.}
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Designed a tokenizer-metric-aware objective for discrete world models that uses local soft targets early in training and anneals back to cross-entropy to preserve the final objective.
-    \item Evaluating the method on an accepted IRIS Atari world-model baseline under matched cross-entropy vs. annealed-SLS settings, measuring optimization stability, sample efficiency, final/tail return, and seed failure rate.
-    \item Built an action-conditioned Geometry Dash world model with FSQ tokenization, a block-causal dynamics transformer, and a latent actor-critic trained in imagined rollouts; deployed zero-shot on real gameplay at 30 FPS.
+    \item Built a real-time Geometry Dash Vision-Model-Controller system with FSQ tokenization, action-conditioned transformer dynamics, and an actor-critic trained from behavioural cloning plus PPO in imagined rollouts.
+    \item Deployed the learned controller on live gameplay at 30 FPS and used the action-conditioned world model to sample plausible visual level continuations from real gameplay prefixes.
+    \item Studied Structured Label Smoothing as an FSQ-neighbour prior; a matched IRIS/Pong diagnostic showed partial stability signals but no robust general improvement over cross-entropy.
 \end{itemize}
 
 \section*{Awards}

@@ -51,11 +51,19 @@ F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage auto
     \item Improved attacks by up to 27 percentage points in success rate and a 43\% relative reduction in censored-mean iterations on ResNet-50, validated across 4,500 ImageNet attack runs on five standard classifiers.
 \end{itemize}
 
+\section*{Patents}
+\textbf{Neural Network for Adaptive Bilateral Filtering} \hfill Filed Jul 2026 \\
+F. Lefebvre, F. Tariolle, F. Schnitzler, H. Guermoud, and S. Yassin. \textit{Patent application}.
+\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
+    \item Neural-network adaptive bilateral filtering (ABIF) for reconstructed video blocks inside the in-loop filtering process: feature-map extraction, learned filter-profile selection, and encoder rate-distortion-driven configuration signaling for decoder-side filtering.
+\end{itemize}
+
 \section*{Experience}
 \textbf{\href{https://www.interdigital.com/video-lab/video-codec-research}{InterDigital}} \hfill Rennes, France \\
 \textit{Deep Learning Research Intern} \hfill May 2026 - Present
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
     \item Working on deep learning methods for next-generation video compression, focusing on VVC (H.266) in-loop filtering and decoder-side filter selection to improve reconstructed video quality and coding efficiency.
+    \item Co-invented a neural-network adaptive bilateral filtering method for in-loop reconstruction; patent application filed in July 2026.
 \end{itemize}
 
 \textbf{\href{https://www.enedis.fr/}{Enedis}} \hfill Rouen, France \\
@@ -68,8 +76,8 @@ F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage auto
 \textbf{\href{https://tariolle.github.io/dash-vmc/}{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}} \hfill Feb 2026 - Present \\
 \textit{Independent research project; manuscript in preparation.}
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Built a real-time Geometry Dash Vision-Model-Controller system with FSQ tokenization, action-conditioned transformer dynamics, and an actor-critic trained from behavioural cloning plus PPO in latent FSQ-token rollouts.
-    \item Deployed the controller on live gameplay at 30 FPS; studied Structured Label Smoothing with a matched IRIS/Pong diagnostic, finding no robust improvement over cross-entropy.
+    \item Built a real-time Geometry Dash controller around an 8x8 FSQ token grid, action-conditioned transformer dynamics, and a lightweight actor-critic initialized by behavioural cloning and refined with PPO in frozen-model rollouts.
+    \item Trained offline from approximately two hours of recorded gameplay with no live-game interaction; deployed a decoder-free 15.57M-parameter controller at 60 FPS on an RTX 2060, improving over its behavioural-cloning parent on all three official levels and a held-out community layout.
 \end{itemize}
 
 \section*{Awards}

@@ -44,6 +44,13 @@ Engineering degree, Computer Science and Artificial Intelligence, expected 2027 
 CPGE MP (Preparatory Classes for Grandes \'Ecoles, Mathematics and Physics) \hfill 2021 - 2023
 
 \section*{Publications}
+\textbf{\href{https://tariolle.github.io/dash-vmc/}{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}} \hfill Aug 2026 \\
+F. Tariolle and F. Yger. \textit{Submitted to NeurIPS 2026 Workshop PTA.}
+\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
+    \item Built a real-time Geometry Dash controller around an 8x8 FSQ token grid, action-conditioned transformer dynamics, and a lightweight actor-critic initialized by behavioural cloning and refined with PPO in frozen-model rollouts.
+    \item Trained offline from approximately two hours of recorded gameplay with no live-game interaction; deployed a decoder-free 15.57M-parameter controller at 60 FPS on an RTX 2060, improving over its behavioural-cloning parent on all three official levels and a held-out community layout.
+\end{itemize}
+
 \textbf{\href{https://arxiv.org/abs/2605.25663}{Opportunistic Target Selection}} \hfill May 2026 \\
 F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage automatique)}.
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
@@ -55,7 +62,8 @@ F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage auto
 \textbf{\href{https://www.interdigital.com/video-lab/video-codec-research}{InterDigital}} \hfill Rennes, France \\
 \textit{Deep Learning Research Intern} \hfill May 2026 - Present
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Working on deep learning methods for next-generation video compression, focusing on VVC (H.266) in-loop filtering and decoder-side filter selection to improve reconstructed video quality and coding efficiency.
+    \item Investigating an alternative to neural-network loop filtering (NNLF) for VVC (H.266) that predicts which decoder-side filters to apply to reduce compression and quantization artifacts; preparing a publication on the work.
+    \item Authored and filed more than 10 patent applications arising from the research.
 \end{itemize}
 
 \textbf{\href{https://www.enedis.fr/}{Enedis}} \hfill Rouen, France \\
@@ -64,18 +72,11 @@ F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage auto
     \item Working on deep generative models and large-scale pipelines to simulate high-frequency time series for 38 million customers, supporting a digital twin of the French electricity grid.
 \end{itemize}
 
-\section*{Research Projects}
-\textbf{\href{https://tariolle.github.io/dash-vmc/}{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}} \hfill Feb 2026 - Present \\
-\textit{Independent research project; manuscript in preparation.}
-\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Built a real-time Geometry Dash controller around an 8x8 FSQ token grid, action-conditioned transformer dynamics, and a lightweight actor-critic initialized by behavioural cloning and refined with PPO in frozen-model rollouts.
-    \item Trained offline from approximately two hours of recorded gameplay with no live-game interaction; deployed a decoder-free 15.57M-parameter controller at 60 FPS on an RTX 2060, improving over its behavioural-cloning parent on all three official levels and a held-out community layout.
-\end{itemize}
-
 \section*{Awards}
 \textbf{Finalist, Hack the World(s) Hackathon} \hfill Jun 2026 \\
-\textit{24-hour team project at a Yann LeCun-sponsored hackathon on JEPAs and world models}
+\textit{24-hour hackathon on JEPAs and world models, sponsored by Yann LeCun}
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
+    \item Selected as one of 100 participants from 650+ applicants, in a cohort drawn from France's leading engineering schools and universities; placed among the top 5 of 25 teams.
     \item Developed a geometry-aware joint-embedding EEG SSL system: strong SIGReg frozen-transfer baselines and Riemannian latent analysis showing structure in SPD covariance representations.
 \end{itemize}
 
@@ -83,8 +84,7 @@ F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage auto
 \textbf{\href{https://github.com/Alban1911/Rose}{Rose}} (25K+ DAU; 400+ GitHub stars) \hfill Sep 2025 - Present \\
 \textit{Co-founder \& Lead Developer}
 \begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Co-founded and led a real-time customization tool used by 25K+ daily active users; coordinated a 6-person team and designed its Python backend, Cloudflare Workers WebSocket relay, and browser JavaScript integration.
-    \item Replaced OCR-based state extraction with deterministic DOM parsing, reducing latency and complexity.
+    \item Co-founded the real-time customization tool and led its six-person team, contributing across the Python backend, browser integration, and infrastructure.
 \end{itemize}
 
 \textbf{\href{https://github.com/willyfh/visualtorch}{VisualTorch}} (300+ GitHub stars) \hfill Jul 2026 - Present \\

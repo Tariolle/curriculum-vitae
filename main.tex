@@ -1,19 +1,19 @@
 \documentclass[10pt, a4paper]{article}
-\usepackage[left=0.55in, right=0.55in, top=0.45in, bottom=0.45in]{geometry}
+\usepackage[left=0.55in, right=0.55in, top=0.5in, bottom=0.5in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{parskip}
-\setlength{\parskip}{1pt}
+\setlength{\parskip}{2pt}
 
 % Remove page numbers
 \pagestyle{empty}
 
 % Formatting titles
 \titleformat{\section}{\large\bfseries\uppercase}{}{0pt}{}[\titlerule]
-\titlespacing*{\section}{0pt}{0.6ex plus .25ex minus .15ex}{0.25ex plus .1ex}
+\titlespacing*{\section}{0pt}{6pt plus 1pt minus 1pt}{2.5pt}
 
 \hypersetup{
     colorlinks=true,
@@ -25,14 +25,15 @@
 \begin{document}
 
 % Header
-\begin{center}
+{\centering
     {\LARGE \textbf{FLORENT TARIOLLE}} \\[3pt]
     florent.tariolle@gmail.com \quad $\cdot$ \quad
     \href{https://linkedin.com/in/florent-tariolle/}{LinkedIn} \quad $\cdot$ \quad
     \href{https://scholar.google.com/citations?user=z5QWV8kAAAAJ}{Google Scholar} \quad $\cdot$ \quad
     \href{https://github.com/Tariolle}{GitHub} \\[3pt]
-    \textit{Engineering student seeking a 6-month final-year research internship in deep learning, starting in April 2027.}
-\end{center}
+    \textit{Seeking a six-month research internship in deep learning, starting April 2027.}
+\par}
+\vspace{3pt}
 
 \section*{Education}
 \textbf{INSA Rouen Normandy} \hfill Rouen, France \\
@@ -45,58 +46,58 @@ CPGE MP (Preparatory Classes for Grandes \'Ecoles, Mathematics and Physics) \hfi
 
 \section*{Publications}
 \textbf{\href{https://tariolle.github.io/dash-vmc/}{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}} \hfill Aug 2026 \\
-F. Tariolle and F. Yger. \textit{Submitted to NeurIPS 2026 Workshop PTA.}
-\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Built a real-time Geometry Dash controller around an 8x8 FSQ token grid, action-conditioned transformer dynamics, and a lightweight actor-critic initialized by behavioural cloning and refined with PPO in frozen-model rollouts.
-    \item Trained offline from approximately two hours of recorded gameplay with no live-game interaction; deployed a decoder-free 15.57M-parameter controller at 60 FPS on an RTX 2060, improving over its behavioural-cloning parent on all three official levels and a held-out community layout.
+F. Tariolle and F. Yger. \textit{Technical report.}
+\begin{itemize}[itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=15pt]
+    \item Built a Geometry Dash controller with 8x8 FSQ tokens, action-conditioned transformer dynamics and an actor-critic initialized by behavioural cloning and refined with PPO in frozen-model rollouts.
+    \item Trained offline on about two hours of recordings; deployed a decoder-free 16M-parameter policy at 60 FPS on an RTX 2060, outperforming its cloning baseline on all three official levels and a held-out layout.
 \end{itemize}
 
 \textbf{\href{https://arxiv.org/abs/2605.25663}{Opportunistic Target Selection}} \hfill May 2026 \\
 F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage automatique)}.
-\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Introduced a lightweight wrapper for score-based black-box adversarial attacks using early class confidence signals to reduce class drift in undirected random-search attacks.
-    \item Improved attacks by up to 27 percentage points in success rate and a 43\% relative reduction in censored-mean iterations on ResNet-50, validated across 4,500 ImageNet attack runs on five standard classifiers.
+\begin{itemize}[itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=15pt]
+    \item Wrapped score-based black-box random-search attacks with early class confidence signals to reduce class drift.
+    \item Improved ResNet-50 attack success by up to 27 percentage points and reduced censored-mean iterations by 43\%; evaluated on 4,500 ImageNet runs across five classifiers.
 \end{itemize}
 
 \section*{Experience}
 \textbf{\href{https://www.interdigital.com/video-lab/video-codec-research}{InterDigital}} \hfill Rennes, France \\
 \textit{Deep Learning Research Intern} \hfill May 2026 - Sep 2026
-\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Investigated an alternative to Neural Network-based In-Loop Filter (NNLF) for VVC (H.266) that predicts which decoder-side filters to apply to reduce compression and quantization artifacts; preparing a publication on the work.
-    \item Authored and filed more than 10 patent applications arising from the research.
+\begin{itemize}[itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=15pt]
+    \item Researched learned decoder-side filter selection as an alternative to VVC (H.266) neural in-loop filtering to reduce compression and quantization artifacts.
+    \item Authored and filed more than 10 patent applications.
 \end{itemize}
 
 \textbf{\href{https://www.enedis.fr/}{Enedis}} \hfill Rouen, France \\
 \textit{Machine Learning Intern} \hfill Jan 2026 - May 2026
-\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Working on deep generative models and large-scale pipelines to simulate high-frequency time series for 38 million customers, supporting a digital twin of the French electricity grid.
+\begin{itemize}[itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=15pt]
+    \item Worked on generative models and pipelines simulating high-frequency time series for 38 million customers, supporting a digital twin of the French electricity grid.
 \end{itemize}
 
 \section*{Awards}
 \textbf{\href{https://github.com/Tariolle/hello-worlds}{Finalist, Hack the World(s) Hackathon}} \hfill Jun 2026 \\
 \textit{24-hour hackathon on JEPAs and world models, sponsored by Yann LeCun}
-\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Selected as one of 100 participants from 650+ applicants, in a cohort drawn from France's leading engineering schools and universities; placed among the top 5 of 25 teams.
-    \item Developed a geometry-aware joint-embedding EEG SSL system: strong SIGReg frozen-transfer baselines and Riemannian latent analysis showing structure in SPD covariance representations.
+\begin{itemize}[itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=15pt]
+    \item Selected among 100 participants from 650+ applicants; finished in the top 5 of 25 teams.
+    \item Built joint-embedding EEG SSL with SIGReg frozen-transfer baselines and Riemannian SPD covariance analysis.
 \end{itemize}
 
 \section*{Open Source}
 \textbf{\href{https://github.com/Alban1911/Rose}{Rose}} (30K+ DAU; 600+ GitHub stars) \hfill Sep 2025 - Present \\
-\textit{Co-founder \& Lead Developer}
-\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Co-founded the real-time customization tool and led its six-person team, contributing across the Python backend, browser integration, and infrastructure.
-\end{itemize}
+\textit{Co-founder \& Lead Developer} --- real-time customization tool \\
+Led a six-person team across the Python backend, browser integration and infrastructure.
+\vspace{4pt}
 
 \textbf{\href{https://github.com/willyfh/visualtorch}{VisualTorch}} (300+ GitHub stars) \hfill Jul 2026 - Present \\
-\textit{Maintainer \& MCP Integration Lead}
-\begin{itemize}[noitemsep, topsep=2pt, leftmargin=15pt]
-    \item Maintain VisualTorch, an official PyTorch Ecosystem project; designed and implemented its MCP integration for generating editable neural-network architecture diagrams.
-\end{itemize}
+\textit{Maintainer \& MCP Integration Lead} --- official PyTorch Ecosystem project \\
+Built MCP integration for editable neural-network architecture diagrams.
 
 \section*{Technical Skills}
 \textbf{Programming:} Python, C++ \\
 \textbf{AI \& ML:} PyTorch, CUDA; Deep Learning, Self-Supervised Learning, World Models, Model-Based RL and Planning \\
-\textbf{Languages:} French (native), English (TOEIC 970/990)
+\textbf{Languages:} French (native), English (TOEIC 970/990), Spanish (intermediate)
+
+\section*{Interests}
+League of Legends (top 0.1\% of ranked players; two LAN wins), bouldering, and strength training.
 
 \section*{References}
 \textbf{\href{https://scholar.google.com/citations?user=NF_1_38AAAAJ}{Florian Yger}}: \href{mailto:florian.yger@insa-rouen.fr}{florian.yger@insa-rouen.fr} \hfill

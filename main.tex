@@ -1,106 +1,154 @@
-\documentclass[10pt, a4paper]{article}
-\usepackage[left=0.55in, right=0.55in, top=0.5in, bottom=0.5in]{geometry}
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=0.65in,right=0.65in,top=0.55in,bottom=0.55in,
+            includeheadfoot,headheight=14pt,headsep=12pt,footskip=20pt]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{hyperref}
-\usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{parskip}
-\setlength{\parskip}{2pt}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+\usepackage{xcolor}
 
-% Remove page numbers
-\pagestyle{empty}
+\definecolor{accent}{HTML}{243B4A}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\raggedright
+\hypersetup{hidelinks,pdftitle={Florent Tariolle - Research CV},
+            pdfauthor={Florent Tariolle}}
 
-% Formatting titles
-\titleformat{\section}{\large\bfseries\uppercase}{}{0pt}{}[\titlerule]
-\titlespacing*{\section}{0pt}{6pt plus 1pt minus 1pt}{2.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Florent Tariolle}
+\fancyhead[R]{\small Research CV}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{firstpage}{\fancyhf{}\fancyfoot[R]{\small\thepage}}
 
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=black,      
-    urlcolor=black,
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+
+% Dates remain in a separate column; long titles wrap without touching them.
+\newcommand{\entry}[3]{%
+  \Needspace{5\baselineskip}%
+  \vspace{3pt}%
+  {\setlength{\parskip}{0pt}%
+    \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xr@{}}%
+      \textbf{#1} & {\small #2}\\%
+    \end{tabularx}\par\nobreak
+    {\small\textit{#3}}\par\nobreak
+  }\vspace{2pt}\nobreak
 }
+\newcommand{\paperlinks}[1]{{\small #1}\par\nobreak}
 
 \begin{document}
+\thispagestyle{firstpage}
 
-% Header
 {\centering
-    {\LARGE \textbf{FLORENT TARIOLLE}} \\[3pt]
-    florent.tariolle@gmail.com \quad $\cdot$ \quad
-    \href{https://linkedin.com/in/florent-tariolle/}{LinkedIn} \quad $\cdot$ \quad
-    \href{https://scholar.google.com/citations?user=z5QWV8kAAAAJ}{Google Scholar} \quad $\cdot$ \quad
-    \href{https://github.com/Tariolle}{GitHub} \\[3pt]
-    \textit{Seeking a six-month research internship in deep learning, starting April 2027.}
-\par}
-\vspace{3pt}
+  {\LARGE\bfseries FLORENT TARIOLLE}\\[4pt]
+  \href{mailto:florent.tariolle@gmail.com}{florent.tariolle@gmail.com}
+  \quad$\cdot$\quad\href{https://tariolle.github.io/}{Website}
+  \quad$\cdot$\quad\href{https://www.linkedin.com/in/florent-tariolle/}{LinkedIn}
+  \quad$\cdot$\quad\href{https://scholar.google.com/citations?user=z5QWV8kAAAAJ}{Scholar}
+  \quad$\cdot$\quad\href{https://github.com/Tariolle}{GitHub}\\[4pt]
+  \textit{Seeking a six-month research internship abroad, starting April 2027.}
+  \par}
 
 \section*{Education}
-\textbf{INSA Rouen Normandy} \hfill Rouen, France \\
-Engineering degree, Computer Science and Artificial Intelligence, expected 2027 \hfill 2023 -- 2027 \\[1pt]
-\textit{Approx.\ U.S.-equivalent GPA: 3.7/4.0 overall; 4.0/4.0 latest semester.} \\[1pt]
-\textbf{University of Rouen Normandy} \hfill Rouen, France \\
-\href{https://mastersd.univ-rouen.fr/home.php}{Master's Degree}, \href{https://mastersd.univ-rouen.fr/mlai.php}{Machine Learning for Artificial Intelligence}, expected 2027 \hfill 2026 -- 2027 \\[1pt]
-\textbf{Lyc\'ee Dupuy de L\^ome} \hfill Lorient, France \\
-CPGE MP (Preparatory Classes for Grandes \'Ecoles, Mathematics and Physics) \hfill 2021 - 2023
+\entry{INSA Rouen Normandy}{2023 -- 2027}{Engineering degree, Computer Science and Artificial Intelligence; expected 2027}
+{\small Rouen, France. Approx.\ U.S.-equivalent GPA: 3.7/4.0 overall; 4.0/4.0 latest semester.}
+
+\entry{University of Rouen Normandy}{2026 -- 2027}{\href{https://mastersd.univ-rouen.fr/mlai.php}{Master's degree, Machine Learning for Artificial Intelligence}; expected 2027}
+
+\entry{Lyc\'ee Dupuy de L\^ome}{2021 -- 2023}{CPGE MP --- Mathematics and Physics}
+{\small Lorient, France. Two-year intensive preparation for competitive entrance examinations to French engineering schools.}
 
 \section*{Publications}
-\textbf{\href{https://tariolle.github.io/dash-vmc/}{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}} \hfill Aug 2026 \\
-F. Tariolle and F. Yger. \textit{\href{https://ptaworkshop.github.io/}{PTA workshop}, NeurIPS 2026.}
-\begin{itemize}[itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=15pt]
-    \item Built a Geometry Dash controller with 8x8 FSQ tokens, action-conditioned transformer dynamics and an actor-critic initialized by behavioural cloning and refined with PPO in frozen-model rollouts.
-    \item Trained offline on about two hours of recordings; deployed a decoder-free 16M-parameter policy at 60 FPS on an RTX 2060, outperforming its cloning baseline on all three official levels and a held-out layout.
-\end{itemize}
+\entry{\href{https://arxiv.org/abs/2609.40003}{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}}{Sep 2026}{F. Tariolle and F. Yger. PTA workshop, NeurIPS 2026.}
+\paperlinks{\href{https://arxiv.org/abs/2609.40003}{arXiv: 2609.40003}
+  $\cdot$ \href{https://tariolle.github.io/dash-vmc/}{Project page and interactive demo}
+  $\cdot$ \href{https://github.com/Tariolle/dash-vmc}{Code}}
+Developed a world-model agent for live Geometry Dash control from screen pixels.
+The system combines an $8\times8$ FSQ token grid, action-conditioned transformer
+dynamics, and a lightweight actor-critic initialized by behavioural cloning and
+refined with PPO entirely in frozen-model rollouts.
 
-\textbf{\href{https://arxiv.org/abs/2605.25663}{Opportunistic Target Selection}} \hfill May 2026 \\
-F. Tariolle and F. Yger. \textit{CAp 2026 (Conf\'erence sur l'Apprentissage automatique)}.
-\begin{itemize}[itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=15pt]
-    \item Wrapped score-based black-box random-search attacks with early class confidence signals to reduce class drift.
-    \item Improved ResNet-50 attack success by up to 27 percentage points and reduced censored-mean iterations by 43\%; evaluated on 4,500 ImageNet runs across five classifiers.
-\end{itemize}
+Trained offline on approximately two hours of recorded gameplay. Policy refinement
+improved survival over the cloning baseline on all three evaluated official levels
+across three controller seeds and on a held-out layout. Decoder-free deployment
+sustains a 60-FPS capture-to-action loop on an RTX 2060.
 
+\entry{\href{https://arxiv.org/abs/2605.25663}{Opportunistic Target Selection: Early Directional Commitment for Query-Efficient Black-Box Adversarial Attacks}}{May 2026}{F. Tariolle and F. Yger. CAp 2026 (Conf\'erence sur l'Apprentissage automatique).}
+\paperlinks{\href{https://arxiv.org/abs/2605.25663}{arXiv: 2605.25663}
+  $\cdot$ \href{https://github.com/Tariolle/opportunistic-target-selection}{Code}
+  $\cdot$ \href{https://github.com/Tariolle/opportunistic-target-selection/blob/main/poster/poster_beamer.pdf}{Poster}}
+Developed a lightweight wrapper for score-based black-box adversarial attacks.
+It uses early class-confidence signals to switch from untargeted exploration to a
+promising target, reducing class drift without gradient access, architectural
+changes, or prior target-class knowledge.
+
+Evaluated across 4,500 ImageNet attack runs on five classifiers. On ResNet-50,
+improved attack success by up to 27 percentage points and reduced censored-mean
+attack iterations by 43\%. Presented a poster at CAp 2026.
+
+\section*{Research Projects and Awards}
+\entry{\href{https://github.com/Tariolle/hello-worlds}{Finalist, Hack the World(s) Hackathon}}{Jun 2026}{Geometry-aware joint-embedding EEG $\cdot$ 24-hour JEPA and world-model challenge}
+Selected as one of 100 participants from 650+ applicants for a hackathon sponsored
+by Yann LeCun. Our team finished among the top five of 25 teams.
+
+Built a geometry-aware EEG self-supervised learning system with SIGReg
+frozen-transfer baselines and Riemannian analysis of covariance representations.
+Evaluated the learned representations with frozen probes and used manifold-aware
+visualizations to examine their structure.
+{\small\href{https://github.com/Tariolle/hello-worlds}{Code}
+  $\cdot$ \href{https://github.com/Tariolle/hello-worlds/blob/main/presentation/main.pdf}{Presentation}}
+
+\newpage
 \section*{Experience}
-\textbf{\href{https://www.interdigital.com/video-lab/video-codec-research}{InterDigital}} \hfill Rennes, France \\
-\textit{Deep Learning Research Intern} \hfill May 2026 - Sep 2026
-\begin{itemize}[itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=15pt]
-    \item Researched learned decoder-side filter selection as an alternative to VVC (H.266) neural in-loop filtering to reduce compression and quantization artifacts.
-    \item Authored and filed more than 10 patent applications.
-\end{itemize}
+\entry{\href{https://www.interdigital.com/video-lab/video-codec-research}{InterDigital}}{May -- Sep 2026}{Deep Learning Research Intern $\cdot$ Rennes, France}
+Researched learned decoder-side filter selection as an alternative to neural
+in-loop filtering for VVC (H.266) video decoding, with the aim of reducing
+compression and quantization artifacts. Authored and filed more than 10 patent
+applications arising from this research.
 
-\textbf{\href{https://www.enedis.fr/}{Enedis}} \hfill Rouen, France \\
-\textit{Machine Learning Intern --- Part-time capstone, 25h/week} \hfill Jan 2026 - Present
-\begin{itemize}[itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=15pt]
-    \item Building a grid digital twin by mapping synthetic customer profiles to substations and integrating measured loads; working on spatial and temporal adjustments. Paused May--Sep 2026 for InterDigital.
-\end{itemize}
+\entry{\href{https://www.enedis.fr/}{Enedis}}{Jan 2026 -- Present}{Machine Learning Intern $\cdot$ Part-time capstone project, 25 hours/week $\cdot$ Rouen, France}
+Building a digital twin of Enedis's distribution network by mapping synthetic
+customer load profiles to distribution substations and linking them to primary
+substations. The project combines customer curves generated by DeepCourboGen
+with measured substation load data, and includes ongoing work on spatial and
+temporal adjustments to make the synthetic profiles more realistic for their
+assigned locations.
 
-\section*{Awards}
-\textbf{\href{https://github.com/Tariolle/hello-worlds}{Finalist, Hack the World(s) Hackathon}} \hfill Jun 2026 \\
-\textit{24-hour hackathon on JEPAs and world models, sponsored by Yann LeCun}
-\begin{itemize}[itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=15pt]
-    \item Selected among 100 participants from 650+ applicants; finished in the top 5 of 25 teams.
-    \item Built joint-embedding EEG SSL with SIGReg frozen-transfer baselines and Riemannian SPD covariance analysis.
-\end{itemize}
+{\small\textit{Paused May--September 2026 during the research internship at InterDigital.}}
 
-\section*{Open Source}
-\textbf{\href{https://github.com/Alban1911/Rose}{Rose}} (30K+ DAU; 600+ GitHub stars) \hfill Sep 2025 - Present \\
-\textit{Co-founder \& Lead Developer} --- real-time customization tool \\
-Led a six-person team across the Python backend, browser integration and infrastructure.
-\vspace{4pt}
+\section*{Open-Source Projects}
+\entry{\href{https://github.com/willyfh/visualtorch}{VisualTorch}}{Jul 2026 -- Present}{Maintainer and MCP Integration Lead $\cdot$ Official PyTorch Ecosystem project}
+Maintain a library for visualizing PyTorch neural-network architectures.
+Designed and implemented its MCP integration to generate editable diagrams from
+model definitions, making architecture inspection available through agent tooling.
+The project has more than 300 GitHub stars.
 
-\textbf{\href{https://github.com/willyfh/visualtorch}{VisualTorch}} (300+ GitHub stars) \hfill Jul 2026 - Present \\
-\textit{Maintainer \& MCP Integration Lead} --- official PyTorch Ecosystem project \\
-Built MCP integration for editable neural-network architecture diagrams.
+\entry{\href{https://github.com/Alban1911/Rose}{Rose --- Real-time customization for League of Legends}}{Sep 2025 -- Present}{Co-founder and Lead Developer $\cdot$ Open source}
+Co-founded and lead a six-person team building a customization tool used by more
+than 30,000 people daily, with over 600 GitHub stars. Built the Python backend and
+Cloudflare Workers infrastructure for real-time client communication. Replaced
+OCR-based client integration with deterministic DOM parsing to improve performance
+and reliability.
 
 \section*{Technical Skills}
-\textbf{Programming:} Python, C++ \\
-\textbf{AI \& ML:} PyTorch, CUDA; Deep Learning, Self-Supervised Learning, World Models, Model-Based RL and Planning \\
+\textbf{Programming:} Python, C++\\
+\textbf{Frameworks and compute:} PyTorch, CUDA\\
+\textbf{Research:} Self-supervised learning, world models, model-based reinforcement learning and planning\\
 \textbf{Languages:} French (native), English (TOEIC 970/990), Spanish (intermediate)
 
 \section*{Interests}
 League of Legends (top 0.1\% of ranked players; two LAN wins), bouldering, and strength training.
 
 \section*{References}
-\textbf{\href{https://scholar.google.com/citations?user=NF_1_38AAAAJ}{Florian Yger}}: \href{mailto:florian.yger@insa-rouen.fr}{florian.yger@insa-rouen.fr} \hfill
-\textbf{\href{https://www.linkedin.com/in/frederic-lefebvre-a8590b11/}{Fr\'ed\'eric Lef\`ebvre}}: \href{mailto:frederic.lefebvre@interdigital.com}{frederic.lefebvre@interdigital.com}
+\href{https://scholar.google.com/citations?user=NF_1_38AAAAJ}{\textbf{Florian Yger}}
+$\cdot$ \href{mailto:florian.yger@insa-rouen.fr}{florian.yger@insa-rouen.fr}\\
+\href{https://www.linkedin.com/in/frederic-lefebvre-a8590b11/}{\textbf{Fr\'ed\'eric Lef\`ebvre}}
+$\cdot$ \href{mailto:frederic.lefebvre@interdigital.com}{frederic.lefebvre@interdigital.com}
 
 \end{document}

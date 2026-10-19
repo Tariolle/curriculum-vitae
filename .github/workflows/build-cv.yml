@@ -27,6 +27,7 @@ jobs:
           root_file: main.tex
 
       - name: Commit updated PDF
+        id: commit
         shell: bash
         run: |
           if [ -z "$(git status --porcelain -- main.pdf)" ]; then
@@ -39,3 +40,21 @@ jobs:
           git add -f main.pdf
           git commit -m "Build CV PDF"
           git push
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # The portfolio serves this PDF and rebuilds only when told to.
+      - name: Trigger portfolio redeploy
+        if: steps.commit.outputs.sha != ''
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.PORTFOLIO_DISPATCH_TOKEN }}
+          SHA: ${{ steps.commit.outputs.sha }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::PORTFOLIO_DISPATCH_TOKEN is not set; the portfolio was not redeployed."
+            exit 0
+          fi
+
+          gh api repos/Tariolle/Tariolle.github.io/dispatches \
+            -f event_type=cv-updated \
+            -f "client_payload[sha]=$SHA"

@@ -12,6 +12,8 @@
 \usepackage{xcolor}
 
 \definecolor{accent}{HTML}{243B4A}
+\definecolor{muted}{HTML}{59656D}
+\definecolor{linkaccent}{HTML}{1D5B85}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
 \raggedright
@@ -35,12 +37,34 @@
   \vspace{3pt}%
   {\setlength{\parskip}{0pt}%
     \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xr@{}}%
-      \textbf{#1} & {\small #2}\\%
+      \textbf{#1} & {\small\color{muted} #2}\\%
     \end{tabularx}\par\nobreak
-    {\small\textit{#3}}\par\nobreak
+    {\small\color{muted}\textit{#3}}\par\nobreak
   }\vspace{2pt}\nobreak
 }
-\newcommand{\paperlinks}[1]{{\small #1}\par\nobreak}
+% Group roles under one employer; retain the same entry layout within each group.
+\newenvironment{employment}[2]{%
+  \Needspace{8\baselineskip}%
+  \vspace{3pt}%
+  {\setlength{\parskip}{0pt}%
+    \textbf{\color{accent}\href{#2}{#1}}\par\nobreak
+  }%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{12pt}%
+    \setlength{\rightmargin}{0pt}%
+    \setlength{\topsep}{0pt}%
+    \setlength{\partopsep}{0pt}%
+    \setlength{\parsep}{4pt}%
+    \setlength{\itemsep}{0pt}%
+  }%
+  \item\relax
+}{%
+  \end{list}%
+}
+\newcommand{\resourcelink}[2]{%
+  \href{#1}{\textcolor{linkaccent}{\textbf{[#2]}}}%
+}
+\newcommand{\resourcelinks}[1]{\par{\small #1}\par\nobreak}
 
 \begin{document}
 \thispagestyle{firstpage}
@@ -66,9 +90,9 @@
 
 \section*{Publications}
 \entry{\href{https://arxiv.org/abs/2609.40003}{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}}{Sep 2026}{F. Tariolle and F. Yger. PTA workshop, NeurIPS 2026.}
-\paperlinks{\href{https://arxiv.org/abs/2609.40003}{arXiv: 2609.40003}
-  $\cdot$ \href{https://tariolle.github.io/dash-vmc/}{Project page and interactive demo}
-  $\cdot$ \href{https://github.com/Tariolle/dash-vmc}{Code}}
+\resourcelinks{\resourcelink{https://arxiv.org/abs/2609.40003}{arXiv: 2609.40003}
+  \resourcelink{https://tariolle.github.io/dash-vmc/}{Project page and interactive demo}
+  \resourcelink{https://github.com/Tariolle/dash-vmc}{Code}}
 Developed a world-model agent for live Geometry Dash control from screen pixels.
 The system combines an $8\times8$ FSQ token grid, action-conditioned transformer
 dynamics, and a lightweight actor-critic initialized by behavioural cloning and
@@ -80,9 +104,9 @@ across three controller seeds and on a held-out layout. Decoder-free deployment
 sustains a 60-FPS capture-to-action loop on an RTX 2060.
 
 \entry{\href{https://arxiv.org/abs/2605.25663}{Opportunistic Target Selection: Early Directional Commitment for Query-Efficient Black-Box Adversarial Attacks}}{May 2026}{F. Tariolle and F. Yger. CAp 2026 (Conf\'erence sur l'Apprentissage automatique).}
-\paperlinks{\href{https://arxiv.org/abs/2605.25663}{arXiv: 2605.25663}
-  $\cdot$ \href{https://github.com/Tariolle/opportunistic-target-selection}{Code}
-  $\cdot$ \href{https://github.com/Tariolle/opportunistic-target-selection/blob/main/poster/poster_beamer.pdf}{Poster}}
+\resourcelinks{\resourcelink{https://arxiv.org/abs/2605.25663}{arXiv: 2605.25663}
+  \resourcelink{https://github.com/Tariolle/opportunistic-target-selection}{Code}
+  \resourcelink{https://github.com/Tariolle/opportunistic-target-selection/blob/main/poster/poster_beamer.pdf}{Poster}}
 Developed a lightweight wrapper for score-based black-box adversarial attacks.
 It uses early class-confidence signals to switch from untargeted exploration to a
 promising target, reducing class drift without gradient access, architectural
@@ -100,24 +124,27 @@ by Yann LeCun. Our team finished among the top five of 25 teams.
 Built a model that learns from unlabeled EEG recordings. Explored whether
 training that respects the curved geometry of covariance matrices leads to
 more structured representations.
-{\small\href{https://github.com/Tariolle/hello-worlds}{Code}
-  $\cdot$ \href{https://github.com/Tariolle/hello-worlds/blob/main/presentation/main.pdf}{Presentation}}
+\resourcelinks{\resourcelink{https://github.com/Tariolle/hello-worlds}{Code}
+  \resourcelink{https://github.com/Tariolle/hello-worlds/blob/main/presentation/main.pdf}{Presentation}}
 
 \newpage
 \section*{Experience}
-\entry{\href{https://www.interdigital.com/}{InterDigital}}{Oct 2026 -- Present}{Generative AI Consultant $\cdot$ Freelance $\cdot$ France, remote}
+\begin{employment}{InterDigital}{https://www.interdigital.com/}
+\entry{Generative AI Consultant}{Oct 2026 -- Present}{Freelance $\cdot$ France, remote}
 Advising InterDigital's R\&D teams on generative AI workflows, plugins, and skills,
 building on tools I initiated during my research internship. Helping teams develop
 and maintain these tools independently through practical guidance on AI-assisted
 development, reliability, and security.
 
-\entry{\href{https://www.interdigital.com/video-lab/video-codec-research}{InterDigital}}{May -- Sep 2026}{Deep Learning Research Intern $\cdot$ Rennes, France}
+\entry{\href{https://www.interdigital.com/video-lab/video-codec-research}{Deep Learning Research Intern}}{May -- Sep 2026}{Rennes, France}
 Researched learned decoder-side filter selection as an alternative to neural
 in-loop filtering for VVC (H.266) video decoding, with the aim of reducing
 compression and quantization artifacts. Authored and filed more than 10 patent
 applications arising from this research.
+\end{employment}
 
-\entry{\href{https://www.enedis.fr/}{Enedis}}{Jan 2026 -- Present}{Machine Learning Intern $\cdot$ Part-time capstone project, 25 hours/week $\cdot$ Rouen, France}
+\begin{employment}{Enedis}{https://www.enedis.fr/}
+\entry{Machine Learning Intern}{Jan 2026 -- Present}{Part-time capstone project, 25 hours/week $\cdot$ Rouen, France}
 Building a digital twin of Enedis's distribution network by mapping synthetic
 customer load profiles to distribution substations and linking them to primary
 substations. The project combines customer curves generated by DeepCourboGen
@@ -125,21 +152,23 @@ with measured substation load data, and includes ongoing work on spatial and
 temporal adjustments to make the synthetic profiles more realistic for their
 assigned locations.
 
-{\small\textit{Paused May--September 2026 during the research internship at InterDigital.}}
+{\small\color{muted}\textit{Paused May--September 2026 during the research internship at InterDigital.}}
+\end{employment}
 
 \section*{Open-Source Projects}
 \entry{\href{https://github.com/willyfh/visualtorch}{VisualTorch}}{Jul 2026 -- Present}{Maintainer and MCP Integration Lead $\cdot$ Official PyTorch Ecosystem project}
-Maintain a library for visualizing PyTorch neural-network architectures.
+Maintaining a library for visualizing PyTorch neural-network architectures.
 Designed and implemented its MCP integration to generate editable diagrams from
 model definitions, making architecture inspection available through agent tooling.
 The project has more than 300 GitHub stars.
 
-\entry{\href{https://github.com/Alban1911/Rose}{Rose --- Real-time customization for League of Legends}}{Sep 2025 -- Present}{Co-founder and Lead Developer $\cdot$ Open source}
-Co-founded and lead a six-person team building a customization tool with more
-than 90,000 monthly active users and nearly 700 GitHub stars. Built the Python backend and
-Cloudflare Workers infrastructure for real-time client communication. Replaced
-OCR-based client integration with deterministic DOM parsing to improve performance
-and reliability.
+\entry{\href{https://github.com/Alban1911/Rose}{Rose --- Real-time customization for League of Legends}}{Sep -- Dec 2025}{Co-founder and Lead Developer $\cdot$ Open source}
+Co-founded and co-developed an open-source customization tool; remain the project's
+top contributor. Built core application components spanning the Python backend,
+in-client JavaScript plugins, and their real-time WebSocket bridge.
+
+The project has since reached 30,000 daily active users and 90,000 monthly active
+users, with 700+ GitHub stars and 20+ contributors.
 
 \section*{Technical Skills}
 \textbf{Programming:} Python, C++\\

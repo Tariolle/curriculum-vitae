@@ -62,9 +62,21 @@
   \end{list}%
 }
 \newcommand{\resourcelink}[2]{%
-  \href{#1}{\textcolor{linkaccent}{\textbf{[#2]}}}%
+  \href{#1}{\textcolor{linkaccent}{\textbf{#2}}}%
 }
 \newcommand{\resourcelinks}[1]{\par{\small #1}\par\nobreak}
+\newenvironment{highlights}{%
+  \begin{list}{\textbullet}{%
+    \setlength{\leftmargin}{12pt}%
+    \setlength{\labelsep}{5pt}%
+    \setlength{\topsep}{2pt}%
+    \setlength{\partopsep}{0pt}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\itemsep}{2pt}%
+  }%
+}{%
+  \end{list}%
+}
 
 \begin{document}
 \thispagestyle{firstpage}
@@ -76,56 +88,56 @@
   \quad$\cdot$\quad\href{https://www.linkedin.com/in/florent-tariolle/}{LinkedIn}
   \quad$\cdot$\quad\href{https://scholar.google.com/citations?user=z5QWV8kAAAAJ}{Scholar}
   \quad$\cdot$\quad\href{https://github.com/Tariolle}{GitHub}\\[4pt]
-  \textit{Seeking a six-month research internship abroad, starting April 2027.}
+  \textit{Seeking a six-month research internship abroad in world models, starting April 2027.}
   \par}
 
 \section*{Education}
 \entry{INSA Rouen Normandy}{2023 -- 2027}{Engineering degree, Computer Science and Artificial Intelligence; expected 2027}
-{\small Rouen, France. Approx.\ U.S.-equivalent GPA: 3.7/4.0 overall; 4.0/4.0 latest semester.}
 
 \entry{University of Rouen Normandy}{2026 -- 2027}{\href{https://mastersd.univ-rouen.fr/mlai.php}{Master's degree, Machine Learning for Artificial Intelligence}; expected 2027}
 
-\entry{Lyc\'ee Dupuy de L\^ome}{2021 -- 2023}{CPGE MP --- Mathematics and Physics}
-{\small Lorient, France. Two-year intensive preparation for competitive entrance examinations to French engineering schools.}
+\entry{Lyc\'ee Dupuy de L\^ome}{2021 -- 2023}{Two-year intensive preparatory programme in mathematics and physics (CPGE MP)}
 
 \section*{Publications}
-\entry{\href{https://arxiv.org/abs/2609.40003}{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}}{Sep 2026}{F. Tariolle and F. Yger. PTA workshop, NeurIPS 2026.}
+\entry{\href{https://arxiv.org/abs/2609.40003}{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}}{Sep 2026}{F. Tariolle and F. Yger. PTA workshop, NeurIPS 2026 --- accepted paper; poster.}
 \resourcelinks{\resourcelink{https://arxiv.org/abs/2609.40003}{arXiv: 2609.40003}
-  \resourcelink{https://tariolle.github.io/dash-vmc/}{Project page and interactive demo}
+  \enspace$\cdot$\enspace\resourcelink{https://tariolle.github.io/dash-vmc/}{Demo}
+  \enspace$\cdot$\enspace
   \resourcelink{https://github.com/Tariolle/dash-vmc}{Code}}
-Developed a world-model agent for live Geometry Dash control from screen pixels.
-The system combines an $8\times8$ FSQ token grid, action-conditioned transformer
-dynamics, and a lightweight actor-critic initialized by behavioural cloning and
-refined with PPO entirely in frozen-model rollouts.
+\begin{highlights}
+  \item Developed a world-model agent for live Geometry Dash control from pixels,
+    refining a behaviour-cloned policy with PPO entirely in frozen-model rollouts.
+  \item Trained offline on approximately two hours of gameplay; improved
+    survival over cloning on three official levels and a held-out layout, with
+    60-FPS control on an RTX 2060.
+\end{highlights}
 
-Trained offline on approximately two hours of recorded gameplay. Policy refinement
-improved survival over the cloning baseline on all three evaluated official levels
-across three controller seeds and on a held-out layout. Decoder-free deployment
-sustains a 60-FPS capture-to-action loop on an RTX 2060.
-
-\entry{\href{https://arxiv.org/abs/2605.25663}{Opportunistic Target Selection: Early Directional Commitment for Query-Efficient Black-Box Adversarial Attacks}}{May 2026}{F. Tariolle and F. Yger. CAp 2026 (Conf\'erence sur l'Apprentissage automatique).}
+\entry{\href{https://arxiv.org/abs/2605.25663}{Opportunistic Target Selection: Early Directional Commitment for Query-Efficient Black-Box Adversarial Attacks}}{May 2026}{F. Tariolle and F. Yger. CAp 2026 (Conf\'erence sur l'Apprentissage automatique) --- accepted paper; poster.}
 \resourcelinks{\resourcelink{https://arxiv.org/abs/2605.25663}{arXiv: 2605.25663}
+  \enspace$\cdot$\enspace
   \resourcelink{https://github.com/Tariolle/opportunistic-target-selection}{Code}
+  \enspace$\cdot$\enspace
   \resourcelink{https://github.com/Tariolle/opportunistic-target-selection/blob/main/poster/poster_beamer.pdf}{Poster}}
-Developed a lightweight wrapper for score-based black-box adversarial attacks.
-It uses early class-confidence signals to switch from untargeted exploration to a
-promising target, reducing class drift without gradient access, architectural
-changes, or prior target-class knowledge.
-
-Evaluated across 4,500 ImageNet attack runs on five classifiers. On ResNet-50,
-improved attack success by up to 27 percentage points and reduced censored-mean
-attack iterations by 43\%. Presented a poster at CAp 2026.
+\begin{highlights}
+  \item Developed a wrapper for score-based black-box adversarial attacks that uses
+    early class-confidence signals to select a target, reducing class drift without
+    gradient access.
+  \item Evaluated 4,500 ImageNet attack runs across five classifiers.
+    On ResNet-50, improved attack success by up to 27 percentage points and
+    reduced censored-mean attack iterations by 43\%.
+\end{highlights}
 
 \section*{Research Projects and Awards}
 \entry{\href{https://github.com/Tariolle/hello-worlds}{Finalist, Hack the World(s) Hackathon}}{Jun 2026}{Geometry-aware joint-embedding EEG $\cdot$ 24-hour JEPA and world-model challenge}
+\resourcelinks{\resourcelink{https://github.com/Tariolle/hello-worlds}{Code}
+  \enspace$\cdot$\enspace
+  \resourcelink{https://github.com/Tariolle/hello-worlds/blob/main/presentation/main.pdf}{Presentation}}
 Selected as one of 100 participants from 650+ applicants for a hackathon sponsored
 by Yann LeCun. Our team finished among the top five of 25 teams.
 
 Built a model that learns from unlabeled EEG recordings. Explored whether
 training that respects the curved geometry of covariance matrices leads to
 more structured representations.
-\resourcelinks{\resourcelink{https://github.com/Tariolle/hello-worlds}{Code}
-  \resourcelink{https://github.com/Tariolle/hello-worlds/blob/main/presentation/main.pdf}{Presentation}}
 
 \newpage
 \section*{Experience}
@@ -139,24 +151,23 @@ development, reliability, and security.
 \entry{\href{https://www.interdigital.com/video-lab/video-codec-research}{Deep Learning Research Intern}}{May -- Sep 2026}{Rennes, France}
 Researched learned decoder-side filter selection as an alternative to neural
 in-loop filtering for VVC (H.266) video decoding, with the aim of reducing
-compression and quantization artifacts. Authored and filed more than 10 patent
+compression and quantization artifacts. Contributed to more than 10 patent
 applications arising from this research.
 \end{employment}
 
 \begin{employment}{Enedis}{https://www.enedis.fr/}
 \entry{Machine Learning Intern}{Jan 2026 -- Present}{Part-time capstone project, 25 hours/week $\cdot$ Rouen, France}
 Building a digital twin of Enedis's distribution network by mapping synthetic
-customer load profiles to distribution substations and linking them to primary
-substations. The project combines customer curves generated by DeepCourboGen
-with measured substation load data, and includes ongoing work on spatial and
-temporal adjustments to make the synthetic profiles more realistic for their
-assigned locations.
+customer load profiles to distribution substations and linking these to primary
+substations. Combining DeepCourboGen-generated curves with measured substation
+loads, and developing spatial and temporal adjustments for more realistic local
+profiles.
 
 {\small\color{muted}\textit{Paused May--September 2026 during the research internship at InterDigital.}}
 \end{employment}
 
 \section*{Open-Source Projects}
-\entry{\href{https://github.com/willyfh/visualtorch}{VisualTorch}}{Jul 2026 -- Present}{Maintainer and MCP Integration Lead $\cdot$ Official PyTorch Ecosystem project}
+\entry{\href{https://github.com/willyfh/visualtorch}{VisualTorch}}{Jul 2026 -- Present}{Maintainer and MCP Integration Lead $\cdot$ \href{https://pytorch.org/blog/pytorch-ecosystem-landscape-q3-update/}{Official PyTorch Ecosystem project}}
 Maintaining a library for visualizing PyTorch neural-network architectures.
 Designed and implemented its MCP integration to generate editable diagrams from
 model definitions, making architecture inspection available through agent tooling.
@@ -180,9 +191,15 @@ users, with 700+ GitHub stars and 20+ contributors.
 League of Legends (top 0.1\% of ranked players; two LAN wins), bouldering, and strength training.
 
 \section*{References}
-\href{https://scholar.google.com/citations?user=NF_1_38AAAAJ}{\textbf{Florian Yger}}
-$\cdot$ \href{mailto:florian.yger@insa-rouen.fr}{florian.yger@insa-rouen.fr}\\
-\href{https://www.linkedin.com/in/frederic-lefebvre-a8590b11/}{\textbf{Fr\'ed\'eric Lef\`ebvre}}
-$\cdot$ \href{mailto:frederic.lefebvre@interdigital.com}{frederic.lefebvre@interdigital.com}
+\begin{tabularx}{\linewidth}{@{}XX@{}}
+  \href{https://scholar.google.com/citations?user=NF_1_38AAAAJ}{\textbf{Florian Yger}}
+    {\small\color{muted}(INSA Rouen Normandy)} &
+  \href{https://www.linkedin.com/in/frederic-lefebvre-a8590b11/}{\textbf{Fr\'ed\'eric Lef\`ebvre}}
+    {\small\color{muted}(InterDigital)}\\
+  {\small\color{muted}Research supervisor and co-author} &
+  {\small\color{muted}Internship and consulting supervisor}\\
+  {\small\href{mailto:florian.yger@insa-rouen.fr}{florian.yger@insa-rouen.fr}} &
+  {\small\href{mailto:frederic.lefebvre@interdigital.com}{frederic.lefebvre@interdigital.com}}
+\end{tabularx}
 
 \end{document}

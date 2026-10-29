@@ -3,6 +3,7 @@
             includeheadfoot,headheight=14pt,headsep=12pt,footskip=20pt]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage[normalem]{ulem}
 \usepackage{hyperref}
 \usepackage{titlesec}
 \usepackage{parskip}
@@ -11,14 +12,17 @@
 \usepackage{needspace}
 \usepackage{xcolor}
 
-\definecolor{accent}{HTML}{243B4A}
-\definecolor{muted}{HTML}{59656D}
-\definecolor{linkaccent}{HTML}{1D5B85}
+\definecolor{accent}{gray}{0}
+\definecolor{muted}{gray}{0.4}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
 \raggedright
 \hypersetup{hidelinks,pdftitle={Florent Tariolle - CV},
             pdfauthor={Florent Tariolle}}
+\let\plainhref\href
+\renewcommand{\href}[2]{%
+  \plainhref{#1}{\uline{#2}}%
+}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -29,7 +33,7 @@
 \fancypagestyle{firstpage}{\fancyhf{}\fancyfoot[R]{\small\thepage}}
 
 \titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\titlerule]
-\titlespacing*{\section}{0pt}{10pt}{5pt}
+\titlespacing*{\section}{0pt}{8pt}{5pt}
 
 % Dates remain in a separate column; long titles wrap without touching them.
 \newcommand{\entry}[3]{%
@@ -62,9 +66,14 @@
   \end{list}%
 }
 \newcommand{\resourcelink}[2]{%
-  \href{#1}{\textcolor{linkaccent}{\textbf{#2}}}%
+  \href{#1}{\textbf{#2}}%
 }
-\newcommand{\resourcelinks}[1]{\par{\small #1}\par\nobreak}
+\newcommand{\resourcelinks}[1]{%
+  {\setlength{\parskip}{0pt}%
+    \par{\small #1}\par\nobreak
+  }%
+}
+\newcommand{\entrygap}{\par\addvspace{6pt}}
 \newenvironment{highlights}{%
   \begin{list}{\textbullet}{%
     \setlength{\leftmargin}{12pt}%
@@ -94,12 +103,12 @@
 \section*{Education}
 \entry{INSA Rouen Normandy}{2023 -- 2027}{Engineering degree, Computer Science and Artificial Intelligence; expected 2027}
 
-\entry{University of Rouen Normandy}{2026 -- 2027}{\href{https://mastersd.univ-rouen.fr/mlai.php}{Master's degree, Machine Learning for Artificial Intelligence}; expected 2027}
+\entry{University of Rouen Normandy}{2026 -- 2027}{Master's degree, Machine Learning for Artificial Intelligence; expected 2027}
 
 \entry{Lyc\'ee Dupuy de L\^ome}{2021 -- 2023}{Two-year intensive preparatory programme in mathematics and physics (CPGE MP)}
 
 \section*{Publications}
-\entry{\href{https://arxiv.org/abs/2609.40003}{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}}{Sep 2026}{F. Tariolle and F. Yger. PTA workshop, NeurIPS 2026 --- accepted paper; poster.}
+\entry{DashVMC: Real-Time Discrete World Model Control in Geometry Dash}{Sep 2026}{F. Tariolle and F. Yger. PTA workshop, NeurIPS 2026 --- accepted paper; poster.}
 \resourcelinks{\resourcelink{https://arxiv.org/abs/2609.40003}{arXiv: 2609.40003}
   \enspace$\cdot$\enspace\resourcelink{https://tariolle.github.io/dash-vmc/}{Demo}
   \enspace$\cdot$\enspace
@@ -112,7 +121,8 @@
     60-FPS control on an RTX 2060.
 \end{highlights}
 
-\entry{\href{https://arxiv.org/abs/2605.25663}{Opportunistic Target Selection: Early Directional Commitment for Query-Efficient Black-Box Adversarial Attacks}}{May 2026}{F. Tariolle and F. Yger. CAp 2026 (Conf\'erence sur l'Apprentissage automatique) --- accepted paper; poster.}
+\entrygap
+\entry{Opportunistic Target Selection: Early Directional Commitment for Query-Efficient Black-Box Adversarial Attacks}{May 2026}{F. Tariolle and F. Yger. CAp 2026 (Conf\'erence sur l'Apprentissage automatique) --- accepted paper; poster.}
 \resourcelinks{\resourcelink{https://arxiv.org/abs/2605.25663}{arXiv: 2605.25663}
   \enspace$\cdot$\enspace
   \resourcelink{https://github.com/Tariolle/opportunistic-target-selection}{Code}
@@ -128,7 +138,7 @@
 \end{highlights}
 
 \section*{Research Projects and Awards}
-\entry{\href{https://github.com/Tariolle/hello-worlds}{Finalist, Hack the World(s) Hackathon}}{Jun 2026}{Geometry-aware joint-embedding EEG $\cdot$ 24-hour JEPA and world-model challenge}
+\entry{Finalist, Hack the World(s) Hackathon}{Jun 2026}{Geometry-aware joint-embedding EEG $\cdot$ 24-hour JEPA and world-model challenge}
 \resourcelinks{\resourcelink{https://github.com/Tariolle/hello-worlds}{Code}
   \enspace$\cdot$\enspace
   \resourcelink{https://github.com/Tariolle/hello-worlds/blob/main/presentation/main.pdf}{Presentation}}
@@ -148,6 +158,7 @@ building on tools I initiated during my research internship. Helping teams devel
 and maintain these tools independently through practical guidance on AI-assisted
 development, reliability, and security.
 
+\entrygap
 \entry{\href{https://www.interdigital.com/video-lab/video-codec-research}{Deep Learning Research Intern}}{May -- Sep 2026}{Rennes, France}
 Researched learned decoder-side filter selection as an alternative to neural
 in-loop filtering for VVC (H.266) video decoding, with the aim of reducing
@@ -155,6 +166,7 @@ compression and quantization artifacts. Contributed to more than 10 patent
 applications arising from this research.
 \end{employment}
 
+\entrygap
 \begin{employment}{Enedis}{https://www.enedis.fr/}
 \entry{Machine Learning Intern}{Jan 2026 -- Present}{Part-time capstone project, 25 hours/week $\cdot$ Rouen, France}
 Building a digital twin of Enedis's distribution network by mapping synthetic
@@ -173,7 +185,8 @@ Designed and implemented its MCP integration to generate editable diagrams from
 model definitions, making architecture inspection available through agent tooling.
 The project has more than 300 GitHub stars.
 
-\entry{\href{https://github.com/Alban1911/Rose}{Rose --- Real-time customization for League of Legends}}{Sep -- Dec 2025}{Co-founder and Lead Developer $\cdot$ Open source}
+\entrygap
+\entry{\href{https://github.com/Alban1911/Rose}{Rose} --- Real-time customization for League of Legends}{Sep -- Dec 2025}{Co-founder and Lead Developer $\cdot$ Open source}
 Co-founded and co-developed an open-source customization tool; remain the project's
 top contributor. Built core application components spanning the Python backend,
 in-client JavaScript plugins, and their real-time WebSocket bridge.
@@ -191,15 +204,19 @@ users, with 700+ GitHub stars and 20+ contributors.
 League of Legends (top 0.1\% of ranked players; two LAN wins), bouldering, and strength training.
 
 \section*{References}
-\begin{tabularx}{\linewidth}{@{}XX@{}}
+\begin{minipage}[t]{0.49\linewidth}
+  \setlength{\parskip}{0pt}
   \href{https://scholar.google.com/citations?user=NF_1_38AAAAJ}{\textbf{Florian Yger}}
-    {\small\color{muted}(INSA Rouen Normandy)} &
+    {\small\color{muted}(INSA Rouen Normandy)}\\
+  {\small\color{muted}Research supervisor and co-author}\\
+  {\small\href{mailto:florian.yger@insa-rouen.fr}{florian.yger@insa-rouen.fr}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\linewidth}
+  \setlength{\parskip}{0pt}
   \href{https://www.linkedin.com/in/frederic-lefebvre-a8590b11/}{\textbf{Fr\'ed\'eric Lef\`ebvre}}
     {\small\color{muted}(InterDigital)}\\
-  {\small\color{muted}Research supervisor and co-author} &
   {\small\color{muted}Internship and consulting supervisor}\\
-  {\small\href{mailto:florian.yger@insa-rouen.fr}{florian.yger@insa-rouen.fr}} &
   {\small\href{mailto:frederic.lefebvre@interdigital.com}{frederic.lefebvre@interdigital.com}}
-\end{tabularx}
+\end{minipage}
 
 \end{document}

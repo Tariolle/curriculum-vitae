@@ -11,3 +11,5 @@
 *.synctex.gz
 *.pdf
 !main.pdf
+!short.pdf
+!full.pdf

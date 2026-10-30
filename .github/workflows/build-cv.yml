@@ -1,11 +1,13 @@
-name: Build CV PDF
+name: Build CV PDFs
 
 on:
   push:
     branches:
       - master
     paths:
-      - main.tex
+      - cv.tex
+      - short.tex
+      - full.tex
       - Makefile
       - .github/workflows/build-cv.yml
   workflow_dispatch:
@@ -24,22 +26,27 @@ jobs:
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: main.tex
+          root_file: |
+            short.tex
+            full.tex
 
-      - name: Commit updated PDF
+      - name: Preserve portfolio download compatibility
+        run: cp short.pdf main.pdf
+
+      - name: Commit updated PDFs
         id: commit
         shell: bash
         run: |
-          if [ -z "$(git status --porcelain -- main.pdf)" ]; then
-            echo "main.pdf is already up to date."
-            exit 0
+          if [ -n "$(git status --porcelain -- main.pdf short.pdf full.pdf)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -f main.pdf short.pdf full.pdf
+            git commit -m "Build CV PDFs"
+            git push
+          else
+            echo "CV PDFs are already up to date."
           fi
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f main.pdf
-          git commit -m "Build CV PDF"
-          git push
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       # The portfolio serves this PDF and rebuilds only when told to.
